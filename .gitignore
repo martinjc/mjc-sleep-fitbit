@@ -1,6 +1,9 @@
 # access tokens
 _credentials.py
 
+#personal data
+sleeps.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
