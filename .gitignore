@@ -1,5 +1,5 @@
 # access tokens
-.credentials.py
+_credentials.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
