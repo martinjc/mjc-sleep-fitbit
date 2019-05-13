@@ -1,3 +1,4 @@
+import sys
 import json
 import requests
 
@@ -69,13 +70,18 @@ def get_sleeps_list():
     # errors, so we'll only carry on while the status code is good
     while r.status_code == 200:
         try:
+            print(next)
             r = requests.get(next, headers=headers)
             sleeps, next = collate_sleeps(sleeps, r)
             print(len(sleeps))
+        except Exception:
+            with open('sleeps.json', 'w') as output_file:
+                json.dump(sleeps, output_file)
+            sys.exit(0)
 
     with open('sleeps.json', 'w') as output_file:
         json.dump(sleeps, output_file)
 
 if __name__ == '__main__':
-    #print(get_auth_url())
+    print(get_auth_url())
     get_sleeps_list()
